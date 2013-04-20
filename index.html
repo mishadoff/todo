@@ -25,7 +25,7 @@
         <td></td>
         <td><input data-bind="value: name" /></td>
         <td><input data-bind="value: time" /></td>
-        <td><select data-bind="options: $root.states, optionsText: 'state'"></select></td>
+        <td><select data-bind="options: $root.states, value: status, optionsText: 'status'"></select></td>
         <td><a href="#" data-bind="click: $root.addTask">+</a></td>
         <td><a href="#" data-bind="click: $root.removeTask">x</a></td>
       </tr>
@@ -33,7 +33,7 @@
   </table>
   
   <hr />
-  <p>Total: <span data-bind="value: totalTime"></span></p>
+  <p>Total: <span data-bind="text: totalTime()"></span></p>
 
   <script type="text/javascript" src="js/knockout-2.2.1.debug.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
