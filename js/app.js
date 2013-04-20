@@ -1,14 +1,27 @@
 // Simple Task
 function Task(name) {
     var self = this;
-    self.name = name;
+    self.name = ko.observable(name);
+    self.time = ko.observable("2");
+    self.state = ko.observable("TODO");
+    
+    /*self.time = ko.computed(function (){ 
+	return parseClever(self.estimateClever);
+    });*/
 }
 
 function TasksViewModel() {
     var self = this;
 
+    self.states = [
+	{state: "TODO"}, 
+	{state: "IN-PROGRESS"},
+	{state: "DONE"}
+	];  
+    
     // Editable data
     self.tasks = ko.observableArray([
+	// Basic tasks
         new Task("Learn Javascript"),
         new Task("Read 'Android Games'"),
         new Task("What else?")

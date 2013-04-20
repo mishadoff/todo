@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>TODO</title>
-    <!-- CSS Here-->
-  </head>
-  <body>
-    <h2>Your tasks (<span data-bind="text: tasks().length"></span>)</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Passenger name</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody data-bind="foreach: tasks">
-        <tr>
-          <td><input data-bind="value: name" /></td>
-          <td><a href="#" data-bind="click: $root.removeTask">Remove</a></td>
-        </tr>
-      </tbody>
-    </table>
+<head>
+<meta charset="utf-8" />
+<title>TODO</title>
+<!-- CSS Here-->
+</head>
+<body>
+  <h2>
+    Your tasks (<span data-bind="text: tasks().length"></span>)
+  </h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task</th>
+        <th>Estimate</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+   
+    <tbody data-bind="foreach: tasks">
+      <tr>
+        <td></td>
+        <td><input data-bind="value: name" /></td>
+        <td><input data-bind="value: time" /></td>
+        <td><select data-bind="options: $root.states, optionsText: 'state'"></select></td>
+        <td><a href="#" data-bind="click: $root.addTask">+</a></td>
+        <td><a href="#" data-bind="click: $root.removeTask">x</a></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <hr />
+  <p>Total: <span data-bind="value: totalTime"></span></p>
 
-    <button data-bind="click: addTask">New Task</button>
-
-    <script type="text/javascript" src="js/knockout-2.2.1.debug.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-  </body>
+  <script type="text/javascript" src="js/knockout-2.2.1.debug.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
 </html>
